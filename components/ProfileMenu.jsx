@@ -10,7 +10,6 @@ const ProfileMenu = () => {
 	const session = useSession();
 	const useAuthHook = authHook();
 	const useComposeHook = composeHook();
-	const router = useRouter();
 
 	return (
 		<div className={'flex flex-col gap-2 px-3 py-3 bg-white z-50 '}>
@@ -36,7 +35,7 @@ const ProfileMenu = () => {
 			{session?.status === 'authenticated' && (
 				<>
 					<Link
-						onClick={() => router.push('/dashboard')}
+						href="/dashboard"
 						className="hover:bg-neutral-100 px-3 py-2 rounded-lg transition text-neutral-500 hover:text-neutral-900"
 					>
 						Dashboard
