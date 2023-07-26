@@ -1,9 +1,8 @@
 'use client';
 
 import Post from '@/components/Post';
-import composeHook from '@/hooks/composeHook';
 import axios from 'axios';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Posts = () => {
 	const [posts, setPosts] = useState();

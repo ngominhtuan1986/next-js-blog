@@ -1,16 +1,16 @@
 'use client';
 
+import { signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import authHook from '@/hooks/authHook';
 import composeHook from '@/hooks/composeHook';
-import menuHook from '@/hooks/menuHook';
-import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 const ProfileMenu = () => {
 	const session = useSession();
 	const useAuthHook = authHook();
-	const useMenuHook = menuHook();
 	const useComposeHook = composeHook();
+	const router = useRouter();
 
 	return (
 		<div className={'flex flex-col gap-2 px-3 py-3 bg-white z-50 '}>
@@ -36,7 +36,7 @@ const ProfileMenu = () => {
 			{session?.status === 'authenticated' && (
 				<>
 					<Link
-						href="/dashboard"
+						onClick={() => router.push('/dashboard')}
 						className="hover:bg-neutral-100 px-3 py-2 rounded-lg transition text-neutral-500 hover:text-neutral-900"
 					>
 						Dashboard

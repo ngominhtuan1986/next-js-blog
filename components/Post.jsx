@@ -1,11 +1,8 @@
 'use client';
 
-import axios from 'axios';
-import { signIn, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { MdDelete, MdFavorite } from 'react-icons/md';
 
 const Post = ({ isProfile, post }) => {
