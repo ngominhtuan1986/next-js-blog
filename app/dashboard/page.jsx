@@ -34,22 +34,22 @@ const Dashboard = () => {
 	if (session.status === 'authenticated') {
 		return (
 			<div className="flex justify-center ">
-				<div className="container grid grid-cols-7 gap-8">
-					<div>
+				<div className="container grid md:grid-cols-4 gap-8">
+					<div className="col-span-1">
 						<div className="sticky top-20 z-20">
-							<div className="text-md text-neutral-700 font-bold pt-3 pb-3  uppercase ">
+							<div className="text-md text-neutral-700 font-bold pt-3 pb-3 uppercase ">
 								Profile
 							</div>
 							<ProfileDashboard />
 						</div>
 					</div>
-					<div className="col-span-4">
-						<div className=" text-md uppercase text-neutral-700 font-bold  sticky z-20 top-20 pt-3 pb-3 bg-white pl-4">
+					<div className="md:col-span-2">
+						<div className=" text-md uppercase text-neutral-700 font-bold  sticky z-20 top-20 pt-3 pb-3 bg-white">
 							My posts
 						</div>
 						<UserPosts />
 					</div>
-					<div className="col-span-2">
+					<div className="col-span-1">
 						<div className="text-md uppercase text-neutral-700 font-bold sticky z-20 top-20 pt-3 pb-3 bg-white  ">
 							Favourite posts
 						</div>

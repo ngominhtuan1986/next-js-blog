@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast';
 import { BiChevronDown } from 'react-icons/bi';
 
 const AuthModal = ({ register, signin, label }) => {
-	const session = useSession()
+	const session = useSession();
 	const useAuthHook = authHook();
 
 	if (!useAuthHook.isAuthOpen) return null;
@@ -71,15 +71,15 @@ const AuthModal = ({ register, signin, label }) => {
 		<div
 			className={`${
 				!useAuthHook.isDelay ? 'slideUp' : 'slideDown'
-			} fixed w-full h-full top-0 left-0 right-0 bottom-0  bg-gradient-to-t from-gray-100 z-50 flex justify-center items-center backdrop-blur-md`}
+			} fixed inset-0  bg-gradient-to-t from-gray-100 z-50 flex justify-center items-center backdrop-blur-md`}
 		>
 			<form
 				onSubmit={useAuthHook.isRegister ? userRegister : userLogin}
-				className="flex flex-col bg-white p-7 rounded-md gap-3 min-w-[500px] shadow-lg relative"
+				className="container mx-[1rem] md:max-w-[500px] flex flex-col bg-white p-7 rounded-md gap-3 shadow-lg relative"
 			>
 				<BiChevronDown
 					size={32}
-					className={`absolute z-50 right-5 top-5 cursor-pointer text-neutral-400 transition ${
+					className={`absolute z-50 right-5 top-6 cursor-pointer text-neutral-400 transition ${
 						useAuthHook.isRegister
 							? 'hover:text-blue-500'
 							: 'hover:text-orange-500'

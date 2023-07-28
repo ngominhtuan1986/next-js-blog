@@ -124,11 +124,11 @@ const ComposeModal = () => {
 		>
 			<form
 				onSubmit={handleSubmit}
-				className="flex flex-col bg-white p-7 rounded-t-md gap-3 min-w-[70vw] shadow-lg relative"
+				className="container md:w-auto flex flex-col bg-white p-7 rounded-t-md gap-3 md:min-w-[70vw] shadow-lg relative "
 			>
 				<BiChevronDown
 					size={32}
-					className="absolute z-50 right-5 top-5 cursor-pointer text-neutral-400 transition hover:text-blue-500"
+					className="absolute z-50 right-5 top-6 cursor-pointer text-neutral-400 transition hover:text-blue-500"
 					onClick={useComposeHook.onDelay}
 				/>
 				<label className="text-3xl font-bold pb-4">Write something...</label>
@@ -164,16 +164,16 @@ const ComposeModal = () => {
 					required
 					className="inputAuth h-[50vh] resize-none "
 				/>
-				<div className="flex justify-between items-center">
+				<div className="flex flex-col gap-5 md:flex-row justify-between items-center">
 					<button
 						onClick={handleDiscard}
-						className="p-3 border-neutral-200 rounded-md pl-8 pr-8 text-left bg-gray-100 hover:bg-neutral-300 transition"
+						className="p-3 border-neutral-200 border rounded-md pl-8 pr-8 text-neutral-300 bg-white hover:text-white hover:bg-neutral-300 transition w-full md:w-auto text-center"
 					>
 						Discard
 					</button>
-					<div className="flex gap-2 items-center">
+					<div className="flex gap-2 items-center md:w-auto md:justify-end w-full justify-between">
 						<div
-							className={`relative h-[49px] aspect-[3/2] rounded-lg overflow-hidden ${
+							className={`relative h-[48px] aspect-[3/2] rounded-lg overflow-hidden ${
 								!imgUpload ? 'border-2 border-dashed' : ''
 							}`}
 						>
@@ -190,7 +190,7 @@ const ComposeModal = () => {
 						</div>
 						<label
 							htmlFor="img-upload"
-							className="relative overflow-hidden cursor-pointer p-3 bg-left rounded-md pl-8 pr-8 text-left bg-gray-100  hover:bg-orange-400 transition"
+							className="relative overflow-hidden cursor-pointer p-3 rounded-md pl-8 pr-8 text-left bg-gray-100  hover:bg-orange-400 transition"
 						>
 							<input
 								onChange={(e) => handleUploadImg(e)}
@@ -211,7 +211,7 @@ const ComposeModal = () => {
 						</label>
 						<button
 							type="submit"
-							className="overflow-hidden relative p-3 rounded-md pl-8 pr-8 text-left bg-gray-100 hover:bg-lime-400 transition"
+							className="overflow-hidden relative p-3 rounded-md px-4 md:px-8 text-left bg-gray-100 hover:bg-lime-400 transition"
 						>
 							Post
 						</button>

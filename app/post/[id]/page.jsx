@@ -39,15 +39,17 @@ const SinglePost = ({ params }) => {
 	}, []);
 
 	if (session.status === 'loading') {
-		return 'Loading';
+		return <div>Loading</div>;
 	}
 	return (
 		<div className="flex justify-center z-50">
 			<div className="container grid grid-cols-4 gap-4">
 				<div
-					className={`${currentUser? 'col-span-3':'col-span-4'} pt-4 flex flex-col`}
+					className={`${
+						currentUser ? 'col-span-3' : 'col-span-4'
+					} pt-4 flex flex-col`}
 				>
-					<div className="border aspect-[4/1] rounded-lg overflow-hidden mb-5 flex justify-center items-center">
+					<div className="border aspect-[2/1] md:aspect-[4/1]  rounded-lg overflow-hidden mb-5 flex justify-center items-center">
 						<Image
 							src={currentPost?.img || '/light-neutral.png'}
 							width={2000}

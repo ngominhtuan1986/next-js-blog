@@ -11,23 +11,25 @@ const SearchWidget = () => {
 	const useComposeHook = composeHook();
 
 	const handleSearch = () => {};
-	
+
 	return (
-		<div className="flex justify-center items-center gap-2  rounded-full p-2  transition">
-			<BiMessageSquareAdd
-				onClick={
-					session?.status === 'authenticated'
-						? useComposeHook.onToggle
-						: () => useAuthHook.onOpen(false)
-				}
-				className="cursor-pointer text-[27pt] text-orange-400 border border-orange-400 rounded-full bg-white hover:bg-orange-600 hover:scale-110 hover:text-white transition flex justify-center items-center p-[8px]"
-			/>
+		<div className="flex relative justify-center items-center gap-2 rounded-full p-2  transition ">
+			<div className="cursor-pointer p-[9px] bg-white border border-orange-400 rounded-full flex justify-center items-center">
+				<BiMessageSquareAdd
+					onClick={
+						session?.status === 'authenticated'
+							? useComposeHook.onToggle
+							: () => useAuthHook.onOpen(false)
+					}
+					className="text-[19px]  text-orange-400   hover:bg-orange-600 hover:scale-110 hover:text-white transition"
+				/>
+			</div>
 			<form
 				onClick={handleSearch}
-				className="flex justify-center items-center border rounded-full p-[2px] pl-4"
+				className="flex justify-center items-center border focus-within:border-neutral-400 rounded-full p-[2px] pl-4"
 			>
-				<input type="text" className="min-w-[15vw]" />
-				<BiSearch className="text-[25pt] cursor-pointer rounded-full bg-white hover:bg-neutral-400 hover:text-white transition flex justify-center items-center p-[8px] text-black" />
+				<input type="text" className="w-full " />
+				<BiSearch className="text-[25pt] cursor-pointer rounded-full bg-white hover:bg-neutral-400 hover:text-white transition flex justify-center items-center p-[7px] text-neutral-300" />
 			</form>
 		</div>
 	);

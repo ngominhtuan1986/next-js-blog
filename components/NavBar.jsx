@@ -17,8 +17,13 @@ const NavBar = () => {
 					href="/"
 					className="flex justify-center items-center text-neutral-600 gap-2"
 				>
-					<SiFacebookgaming size={27} className="text-orange-600" />
-					<span className="font-extrabold text-lg">Next Js Blog</span>
+					<SiFacebookgaming
+						size={39}
+						className="text-orange-600 rounded-full"
+					/>
+					<span className="font-extrabold text-lg hidden sm:block text-orange-600">
+						Sun.Blog
+					</span>
 				</Link>
 				{/* RIGHT */}
 				<div className="flex justify-end items-center">
@@ -33,7 +38,7 @@ const NavBar = () => {
 					className={
 						useMenuHook.isMenuOpen === false
 							? 'hidden'
-							: 'absolute border right-0 top-[105%] shadow-lg rounded-md overflow-hidden'
+							: 'absolute border right-4 top-[105%] shadow-lg rounded-md overflow-hidden'
 					}
 				>
 					<ProfileMenu />

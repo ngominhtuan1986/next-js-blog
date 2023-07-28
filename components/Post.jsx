@@ -29,23 +29,25 @@ const Post = ({ isProfile, post }) => {
 					isProfile ? 'aspect-[4/1]' : 'aspect-square'
 				} relative cursor-pointer rounded-lg overflow-hidden transition`}
 			>
-				<MdFavorite
-					onClick={() => handleFav(post._id)}
-					size={20}
-					className="absolute right-4 top-4 z-10 text-white opacity-80 hover:opacity-100 transition hover:scale-110 hover:text-orange-500"
-				/>
-				<MdDelete
-					onClick={() => handleDel(post._id)}
-					size={23}
-					className="absolute right-4 bottom-4 z-10 text-white opacity-80 hover:opacity-100 transition hover:scale-110 hover:text-orange-500"
-				/>
-				<Image
-					src={'/placeholder.jpg'}
-					height={30}
-					width={30}
-					priority
-					className="rounded-full absolute left-4 bottom-4 z-10 shadow-lg hover:scale-110 transition opacity-80 hover:opacity-100"
-				/>
+				<div className='hidden'>
+					<MdFavorite
+						onClick={() => handleFav(post._id)}
+						size={20}
+						className="absolute right-4 top-4 z-10 text-white opacity-80 hover:opacity-100 transition hover:scale-110 hover:text-orange-500"
+					/>
+					<MdDelete
+						onClick={() => handleDel(post._id)}
+						size={23}
+						className="absolute right-4 bottom-4 z-10 text-white opacity-80 hover:opacity-100 transition hover:scale-110 hover:text-orange-500"
+					/>
+					<Image
+						src={'/placeholder.jpg'}
+						height={20}
+						width={20}
+						priority
+						className="rounded-full absolute left-4 bottom-4 z-10 shadow-lg hover:scale-110 transition opacity-80 hover:opacity-100"
+					/>
+				</div>
 				<Image
 					onClick={() => router.push(`post/${post?._id}`)}
 					src={post?.img || '/light-neutral.png'}

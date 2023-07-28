@@ -8,7 +8,7 @@ export const ProfileDashboard = () => {
 	const session = useSession();
 	return (
 		<div className="flex flex-col pt-0 gap-3">
-			<div className="aspect-square w-[100%] rounded-lg overflow-hidden">
+			<div className="aspect-square w-full rounded-lg overflow-hidden">
 				<Image
 					src={session.data.user.avatar || '/placeholder.jpg'}
 					width={500}
@@ -16,8 +16,8 @@ export const ProfileDashboard = () => {
 					alt=""
 				/>
 			</div>
-			<form className="flex flex-col gap-1 justify-start items-start">
-				<div className="flex items-center justify-between">
+			<form className="flex flex-col gap-1 justify-start items-start w-full">
+				<div className="flex items-center justify-between w-full">
 					<input
 						disabled
 						type="text"
@@ -28,7 +28,7 @@ export const ProfileDashboard = () => {
 						<BiSolidMessageSquareEdit />
 					</div>
 				</div>
-				<div className="flex items-center justify-between">
+				<div className="flex items-center justify-between w-full">
 					<input
 						disabled
 						type="email"
