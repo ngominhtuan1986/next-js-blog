@@ -13,15 +13,14 @@ const SearchWidget = () => {
 	const handleSearch = () => {};
 
 	return (
-		<div className="flex relative justify-center items-center gap-2 rounded-full p-2  transition ">
-			<div className="cursor-pointer p-[9px] bg-white border border-orange-400 rounded-full flex justify-center items-center">
+		<div className="flex relative justify-center items-center gap-2 rounded-full p-2 transition ">
+			<div className="cursor-pointer p-[9px] text-orange-400 hover:text-white hover:bg-orange-500 bg-white border border-orange-400 rounded-full flex text-[19px] justify-center items-center transition">
 				<BiMessageSquareAdd
 					onClick={
 						session?.status === 'authenticated'
 							? useComposeHook.onToggle
 							: () => useAuthHook.onOpen(false)
 					}
-					className="text-[19px]  text-orange-400   hover:bg-orange-600 hover:scale-110 hover:text-white transition"
 				/>
 			</div>
 			<form

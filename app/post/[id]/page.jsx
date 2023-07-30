@@ -49,12 +49,13 @@ const SinglePost = ({ params }) => {
 						currentUser ? 'col-span-3' : 'col-span-4'
 					} pt-4 flex flex-col`}
 				>
-					<div className="border aspect-[2/1] md:aspect-[4/1]  rounded-lg overflow-hidden mb-5 flex justify-center items-center">
+					<div className="relative border aspect-[3/2] md:aspect-[4/1]  rounded-lg overflow-hidden mb-5">
 						<Image
 							src={currentPost?.img || '/light-neutral.png'}
-							width={2000}
-							height={200}
 							priority
+							fill
+							style={{ objectFit: 'cover' }}
+							alt=""
 						/>
 					</div>
 					<h1 className="font-semibold text-3xl">{currentPost?.title}</h1>

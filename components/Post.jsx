@@ -29,7 +29,7 @@ const Post = ({ isProfile, post }) => {
 					isProfile ? 'aspect-[4/1]' : 'aspect-square'
 				} relative cursor-pointer rounded-lg overflow-hidden transition`}
 			>
-				<div className='hidden'>
+				<div className="hidden">
 					<MdFavorite
 						onClick={() => handleFav(post._id)}
 						size={20}
@@ -46,6 +46,7 @@ const Post = ({ isProfile, post }) => {
 						width={20}
 						priority
 						className="rounded-full absolute left-4 bottom-4 z-10 shadow-lg hover:scale-110 transition opacity-80 hover:opacity-100"
+						alt=""
 					/>
 				</div>
 				<Image
@@ -53,7 +54,9 @@ const Post = ({ isProfile, post }) => {
 					src={post?.img || '/light-neutral.png'}
 					alt=""
 					fill
-					objectFit="cover"
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+					style={{ objectFit: 'cover' }}
+					priority
 					className=" hover:brightness-90 transition"
 				/>
 			</div>
