@@ -12,10 +12,17 @@ const handler = async (req, { params }) => {
 			throw new Error(e);
 		}
 	} else if (req.method === 'DELETE') {
-		console.log('postId');
+		const { id } = params;
+		await connect();
+		try {
+			await Post.findByIdAndDelete(id);
+			return Response.json('Delete successfully', { status: 200 });
+		} catch (e) {
+			throw new Error(e);
+		}
 	} else {
 		throw new Error('Wrong method');
 	}
 };
 
-export { handler as GET, handler as POST, handler as DEL };
+export { handler as GET, handler as POST, handler as DELETE };

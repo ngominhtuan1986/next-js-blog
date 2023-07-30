@@ -40,7 +40,7 @@ const ProfileMenu = () => {
 					<div
 						onClick={() => {
 							signOut();
-							useComposeHook.onChangeTitle('Sample test');
+							useComposeHook.onChangeTitle('Sample title');
 							useComposeHook.onChangeContent('Sample content');
 							useComposeHook.onImgUpload('');
 						}}

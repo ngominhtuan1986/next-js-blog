@@ -7,7 +7,7 @@ const composeHook = create(
 			isOpen: false,
 			isDelay: false,
 			imgURL: '',
-			composeTitle: 'Sample test',
+			composeTitle: 'Sample title',
 			composeContent: 'Sample content',
 			isSubmitSucess: false,
 			onToggle: () => set((state) => ({ isOpen: !state.isOpen })),

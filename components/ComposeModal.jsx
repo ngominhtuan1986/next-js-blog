@@ -25,7 +25,7 @@ const ComposeModal = () => {
 
 	const handleDiscard = (e) => {
 		e.preventDefault();
-		useComposeHook.onChangeTitle('Sample test');
+		useComposeHook.onChangeTitle('Sample title');
 		useComposeHook.onChangeContent('Sample content');
 		useComposeHook.onImgUpload('');
 		useComposeHook.onDelay();
@@ -124,7 +124,7 @@ const ComposeModal = () => {
 		>
 			<form
 				onSubmit={handleSubmit}
-				className="container md:w-auto flex flex-col bg-white p-7 rounded-t-md gap-3 md:min-w-[70vw] shadow-lg relative "
+				className="container md:w-auto flex flex-col bg-white p-7 rounded-t-md gap-3 md:min-w-[70vw] shadow-lg relative h-full md:h-auto justify-between"
 			>
 				<BiChevronDown
 					size={32}
@@ -137,17 +137,17 @@ const ComposeModal = () => {
 					type="text"
 					placeholder={useComposeHook.composeTitle}
 					value={
-						useComposeHook.composeTitle === 'Sample test'
+						useComposeHook.composeTitle === 'Sample title'
 							? ''
 							: useComposeHook.composeTitle
 					}
 					onChange={(e) =>
 						e.target.value === ''
-							? useComposeHook.onChangeTitle('Sample test')
+							? useComposeHook.onChangeTitle('Sample title')
 							: useComposeHook.onChangeTitle(e.target.value)
 					}
 					required
-					className="inputAuth font-bold"
+					className="inputAuth"
 				/>
 				<textarea
 					placeholder={useComposeHook.composeContent}
@@ -162,7 +162,7 @@ const ComposeModal = () => {
 							: useComposeHook.onChangeContent(e.target.value)
 					}
 					required
-					className="inputAuth h-[50vh] resize-none "
+					className="inputAuth h-full min-h-[50vh] resize-none "
 				/>
 				<div className="flex flex-col gap-5 md:flex-row justify-between items-center">
 					<button
@@ -190,7 +190,7 @@ const ComposeModal = () => {
 						</div>
 						<label
 							htmlFor="img-upload"
-							className="relative overflow-hidden cursor-pointer p-3 rounded-md pl-8 pr-8 text-left bg-gray-100  hover:bg-orange-400 transition"
+							className="relative overflow-hidden cursor-pointer p-3 rounded-md pl-8 pr-8 text-left bg-gray-100  active:bg-orange-400 transition"
 						>
 							<input
 								onChange={(e) => handleUploadImg(e)}
@@ -211,7 +211,7 @@ const ComposeModal = () => {
 						</label>
 						<button
 							type="submit"
-							className="overflow-hidden relative p-3 rounded-md px-4 md:px-8 text-left bg-gray-100 hover:bg-lime-400 transition"
+							className="overflow-hidden relative p-3 rounded-md px-4 md:px-8 text-left  hover:bg-lime-400 active:bg-lime-400 bg-lime-100 transition"
 						>
 							Post
 						</button>

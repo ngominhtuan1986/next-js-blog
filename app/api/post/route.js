@@ -5,7 +5,7 @@ const handler = async (req, res) => {
 	if (req.method === 'GET') {
 		await connect();
 		try {
-			const posts = await Post.find();
+			const posts = await Post.find().sort({"createdAt": -1});
 			return Response.json(posts, { status: 200 });
 		} catch (e) {
 			throw new Error(e);
@@ -24,4 +24,4 @@ const handler = async (req, res) => {
 	}
 };
 
-export { handler as GET, handler as POST };
+export { handler as GET, handler as POST, handler as DELETE };

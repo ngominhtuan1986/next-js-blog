@@ -22,7 +22,7 @@ const UserPosts = () => {
 	return (
 		<div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5 pt-0">
 			{posts?.map((post) => (
-				<Post post={post} key={post._id} />
+				<Post post={post} key={post._id} isDashboard />
 			))}
 		</div>
 	);

@@ -1,11 +1,12 @@
 'use client';
 
+import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { MdDelete, MdFavorite } from 'react-icons/md';
 
-const Post = ({ isProfile, post }) => {
+const Post = ({ isProfile, isDashboard, post }) => {
 	const session = useSession();
 	const router = useRouter();
 
@@ -15,7 +16,12 @@ const Post = ({ isProfile, post }) => {
 		return 'Loading';
 	}
 
-	const handleDel = async (postId) => {};
+	const handleDel = async (postId) => {
+		await axios
+			.delete(`/api/post/${postId}`)
+			.then((r) => console.log(r))
+			.catch((e) => console.log(e));
+	};
 
 	if (session.status === 'loading') {
 		return 'Loading';
@@ -29,7 +35,7 @@ const Post = ({ isProfile, post }) => {
 					isProfile ? 'aspect-[4/1]' : 'aspect-square'
 				} relative cursor-pointer rounded-lg overflow-hidden transition`}
 			>
-				<div className="hidden">
+				<div className={isDashboard ? "block" : "hidden"}>
 					<MdFavorite
 						onClick={() => handleFav(post._id)}
 						size={20}
@@ -40,15 +46,15 @@ const Post = ({ isProfile, post }) => {
 						size={23}
 						className="absolute right-4 bottom-4 z-10 text-white opacity-80 hover:opacity-100 transition hover:scale-110 hover:text-orange-500"
 					/>
-					<Image
-						src={'/placeholder.jpg'}
-						height={20}
-						width={20}
-						priority
-						className="rounded-full absolute left-4 bottom-4 z-10 shadow-lg hover:scale-110 transition opacity-80 hover:opacity-100"
-						alt=""
-					/>
 				</div>
+				<Image
+					src={'/placeholder.jpg'}
+					height={25}
+					width={25}
+					priority
+					className="rounded-full absolute left-4 bottom-4 z-10 shadow-lg hover:scale-110 transition opacity-80 hover:opacity-100"
+					alt=""
+				/>
 				<Image
 					onClick={() => router.push(`post/${post?._id}`)}
 					src={post?.img || '/light-neutral.png'}
