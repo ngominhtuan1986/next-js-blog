@@ -14,10 +14,12 @@ import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 const ComposeModal = () => {
 	const session = useSession();
 	const storage = getStorage(app);
+	const router = useRouter()
 	const useComposeHook = composeHook();
 	const [percent, setPercent] = useState();
 
@@ -103,6 +105,7 @@ const ComposeModal = () => {
 		await axios
 			.post('api/post', newPost)
 			.then((r) => {
+				router.refresh()
 				// useComposeHook.isSubmitSuccess = true;
 				// useComposeHook.onDelaySubmit();
 				toast.success(r.data);
@@ -113,6 +116,8 @@ const ComposeModal = () => {
 				// useComposeHook.isSubmitSuccess = false;
 				console.log(e);
 			});
+
+
 	};
 
 	if (session.status === 'loading') return null;

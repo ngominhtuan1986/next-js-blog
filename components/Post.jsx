@@ -19,7 +19,7 @@ const Post = ({ isProfile, isDashboard, post }) => {
 	const handleDel = async (postId) => {
 		await axios
 			.delete(`/api/post/${postId}`)
-			.then((r) => console.log(r))
+			.then((r) => router.refresh())
 			.catch((e) => console.log(e));
 	};
 
